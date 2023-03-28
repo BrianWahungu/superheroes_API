@@ -37,3 +37,77 @@ Processing by SuperherosController#create as */*
 Completed 201 Created in 137ms (Views: 1.4ms | ActiveRecord: 97.7ms | Allocations: 10563)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHeroPowers (20230328095442)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "hero_powers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "strength" varchar, "hero_id" integer NOT NULL, "power_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a064e6fddd"
+FOREIGN KEY ("hero_id")
+  REFERENCES "heros" ("id")
+, CONSTRAINT "fk_rails_1e7d81986f"
+FOREIGN KEY ("power_id")
+  REFERENCES "powers" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_hero_powers_on_hero_id" ON "hero_powers" ("hero_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_hero_powers_on_power_id" ON "hero_powers" ("power_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328095442"]]
+  [1m[36mTRANSACTION (102.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePowers (20230328095456)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "powers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328095456"]]
+  [1m[36mTRANSACTION (111.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Superman"], ["superpower", "Flight"], ["created_at", "2023-03-28 09:56:51.984636"], ["updated_at", "2023-03-28 09:56:51.984636"]]
+  [1m[36mTRANSACTION (103.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.4ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Spider-Man"], ["superpower", "Web-slinging"], ["created_at", "2023-03-28 09:56:52.092823"], ["updated_at", "2023-03-28 09:56:52.092823"]]
+  [1m[36mTRANSACTION (106.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Iron Man"], ["superpower", "Advanced technology"], ["created_at", "2023-03-28 09:56:52.203646"], ["updated_at", "2023-03-28 09:56:52.203646"]]
+  [1m[36mTRANSACTION (107.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wonder Woman"], ["superpower", "Super strength"], ["created_at", "2023-03-28 09:56:52.314693"], ["updated_at", "2023-03-28 09:56:52.314693"]]
+  [1m[36mTRANSACTION (106.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", nil], ["description", "Super strength"], ["created_at", "2023-03-28 09:56:52.431511"], ["updated_at", "2023-03-28 09:56:52.431511"]]
+  [1m[36mTRANSACTION (110.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", nil], ["description", "Invisibility"], ["created_at", "2023-03-28 09:56:52.548235"], ["updated_at", "2023-03-28 09:56:52.548235"]]
+  [1m[36mTRANSACTION (126.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", nil], ["description", "Telekinesis"], ["created_at", "2023-03-28 09:56:52.681236"], ["updated_at", "2023-03-28 09:56:52.681236"]]
+  [1m[36mTRANSACTION (101.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Superman"], ["superpower", "Flight"], ["created_at", "2023-03-28 10:05:37.477518"], ["updated_at", "2023-03-28 10:05:37.477518"]]
+  [1m[36mTRANSACTION (103.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.6ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Spider-Man"], ["superpower", "Web-slinging"], ["created_at", "2023-03-28 10:05:37.588174"], ["updated_at", "2023-03-28 10:05:37.588174"]]
+  [1m[36mTRANSACTION (101.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Iron Man"], ["superpower", "Advanced technology"], ["created_at", "2023-03-28 10:05:37.696865"], ["updated_at", "2023-03-28 10:05:37.696865"]]
+  [1m[36mTRANSACTION (96.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wonder Woman"], ["superpower", "Super strength"], ["created_at", "2023-03-28 10:05:37.797006"], ["updated_at", "2023-03-28 10:05:37.797006"]]
+  [1m[36mTRANSACTION (106.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", nil], ["description", "Super strength"], ["created_at", "2023-03-28 10:05:37.912938"], ["updated_at", "2023-03-28 10:05:37.912938"]]
+  [1m[36mTRANSACTION (125.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", nil], ["description", "Invisibility"], ["created_at", "2023-03-28 10:05:38.046267"], ["updated_at", "2023-03-28 10:05:38.046267"]]
+  [1m[36mTRANSACTION (120.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", nil], ["description", "Telekinesis"], ["created_at", "2023-03-28 10:05:38.173818"], ["updated_at", "2023-03-28 10:05:38.173818"]]
+  [1m[36mTRANSACTION (125.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
