@@ -1,0 +1,39 @@
+  [1m[35m (101.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (106.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSuperheros (20230328092531)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "superheros" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "superpower" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328092531"]]
+  [1m[36mTRANSACTION (109.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-28 09:25:51.434574"], ["updated_at", "2023-03-28 09:25:51.434574"]]
+  [1m[36mTRANSACTION (94.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.4ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Superman"], ["superpower", "Flight"], ["created_at", "2023-03-28 09:26:26.838173"], ["updated_at", "2023-03-28 09:26:26.838173"]]
+  [1m[36mTRANSACTION (101.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.5ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Spider-Man"], ["superpower", "Web-slinging"], ["created_at", "2023-03-28 09:26:26.945738"], ["updated_at", "2023-03-28 09:26:26.945738"]]
+  [1m[36mTRANSACTION (81.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Iron Man"], ["superpower", "Advanced technology"], ["created_at", "2023-03-28 09:26:27.033531"], ["updated_at", "2023-03-28 09:26:27.033531"]]
+  [1m[36mTRANSACTION (84.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSuperhero Create (0.3ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wonder Woman"], ["superpower", "Super strength"], ["created_at", "2023-03-28 09:26:27.123053"], ["updated_at", "2023-03-28 09:26:27.123053"]]
+  [1m[36mTRANSACTION (105.7ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/superheros" for 127.0.0.1 at 2023-03-28 12:28:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SuperherosController#create as */*
+  Parameters: {"name"=>"Batman", "superpower"=>"Intelligence", "superhero"=>{"name"=>"Batman", "superpower"=>"Intelligence"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/superheros_controller.rb:20:in `create'
+  [1m[36mSuperhero Create (0.6ms)[0m  [1m[32mINSERT INTO "superheros" ("name", "superpower", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Batman"], ["superpower", "Intelligence"], ["created_at", "2023-03-28 09:28:40.996376"], ["updated_at", "2023-03-28 09:28:40.996376"]]
+  ↳ app/controllers/superheros_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (95.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/superheros_controller.rb:20:in `create'
+Completed 201 Created in 137ms (Views: 1.4ms | ActiveRecord: 97.7ms | Allocations: 10563)
+
+
